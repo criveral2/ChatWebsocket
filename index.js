@@ -27,7 +27,15 @@ io.on('connection' , (socket) =>{
     socket.on('chat:message', (data) => {
         console.log(data);
         io.sockets.emit('chat:message', data);
-    })
+    });
+
+    socket.on('chat:typing', (data) => {
+        socket.broadcast.emit('chat:typing', data);
+    });
+
+
+
+
 });
 
 
